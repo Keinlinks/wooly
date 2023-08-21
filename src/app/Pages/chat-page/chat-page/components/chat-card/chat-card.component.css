@@ -1,0 +1,32 @@
+.custom-profile-image {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: white;
+}
+.custom-background {
+  background-color: #71a8bf;
+  border-radius: 0 30px 30px 0;
+  transition: 0.4s all;
+}
+.custom-background:hover {
+  border-radius: 30px 0 0 30px;
+}
+.custom-background:hover .custom-hover {
+  color: black;
+}
+.text-ellipsis {
+  /* ajusta el ancho según tus necesidades */
+  height: 3em; /* altura de dos líneas y un poco más para el efecto de elipsis */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* número de líneas a mostrar */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.noSelected {
+  background-color: #aecddb;
+}
+.noSelected:hover {
+  background-color: #71a8bf;
+}

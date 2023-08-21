@@ -1,0 +1,14 @@
+<div
+  class="flex p-12 gap-4 w-full h-auto custom-user"
+  [ngStyle]="{ 'justify-content': isMe ? 'flex-end' : 'flex-start' }"
+>
+  <div
+    class="bg-white p-5 h-auto w-auto max-w-2xl rounded-lg"
+    [ngStyle]="{ order: isMe ? '1' : '2' }"
+  >
+    <p class="my-auto"><ng-content></ng-content></p>
+  </div>
+  <div class="self-end">
+    <div class="circle bg-white"></div>
+  </div>
+</div>

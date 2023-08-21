@@ -1,0 +1,11 @@
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.custom-user div:nth-child(1) {
+  order: 2;
+}
+.custom-user div:nth-child(2) {
+  order: 1;
+}

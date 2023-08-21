@@ -1,0 +1,24 @@
+<form class="flex w-full custom-border bg-white">
+  <input
+    [(ngModel)]="messageToSend"
+    name="message"
+    type="text"
+    class="py-5 flex-grow custom-input"
+    placeholder="Enviar mensaje"
+  />
+
+  <button type="submit" (click)="sentSubmit()" class="flex-grow-0">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="36"
+      height="39"
+      viewBox="0 0 36 39"
+      fill="none"
+    >
+      <path
+        d="M2.895 1.0032C23.7054 13.3435 10.3717 30.7175 1.10358 37.8619L34.5724 20.3801L2.895 1.0032Z"
+        stroke="#1B2B36"
+      />
+    </svg>
+  </button>
+</form>

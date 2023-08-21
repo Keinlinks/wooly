@@ -1,0 +1,12 @@
+.custom-background {
+  background-color: var(--background-color);
+}
+.custom-title {
+  font-size: 50px;
+  font-family: "italic";
+  border-bottom: 1px solid var(--primary-color-blue);
+}
+.custom-input-submit:valid {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}

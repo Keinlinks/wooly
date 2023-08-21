@@ -1,0 +1,23 @@
+<div
+  class="flex h-full w-full px-5 custom-background select-none"
+  [ngClass]="{ noSelected: !selected }"
+>
+  <div class="flex items-center">
+    <div class="h-full w-full custom-profile-image"></div>
+  </div>
+  <div *ngIf="selected" class="flex justify-center items-center w-full">
+    <h2 class="text-xl text-center text-gray-500 tracking-tight w-full">
+      <ng-content></ng-content>
+    </h2>
+  </div>
+  <div *ngIf="!selected" class="w-full flex flex-col h-full">
+    <h2 class="px-5 pt-2 font-bold">Juan Antonio</h2>
+    <p
+      class="ml-4 mt-2 text-gray-500 text-ellipsis w-full overflow-hidden custom-hover"
+    >
+      Hola como andas la la la la la la la la la la la la la la la al al al al
+      al la la la lasdasd asdasd jdsfhjksdfjksdfhskdfhsdfkjsh sdjkfh sdjf hsd
+      hsdkfhs kdfhsdjk fhsdfk hsdkf shdf ksdfj hsdfk sdhf sdkf sdjfh
+    </p>
+  </div>
+</div>

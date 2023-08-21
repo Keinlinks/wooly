@@ -1,0 +1,9 @@
+.custom-border {
+  border-radius: 30px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.custom-input:focus {
+  border: none;
+  outline: none;
+}
