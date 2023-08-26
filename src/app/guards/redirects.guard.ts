@@ -1,21 +1,12 @@
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
-
+import { CanActivate, CanActivateFn, Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class authLoginGuard implements CanActivate {
+export class redirectsGuard implements CanActivate {
   constructor(private router: Router) {}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivate(): boolean {
     const token = localStorage.getItem('ACCESS_TOKEN');
     if (token) {
       const decodedToken: decodedToken = jwt_decode(token);
@@ -24,19 +15,15 @@ export class authLoginGuard implements CanActivate {
       const now = new Date();
 
       if (date.getTime() > now.getTime()) {
-        if (token) {
-          return true;
-        }
-      } else {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/chat']);
         return false;
+      } else {
+        return true;
       }
     }
-
-    return false;
+    return true;
   }
 }
-
 interface decodedToken {
   exp: string;
   iat: number;

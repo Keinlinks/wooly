@@ -2,6 +2,8 @@
   <div class="flex flex-col gap-11 h-full custom-background-chat-list">
     <div class="hover:scale-110 transition-all">
       <svg
+        (click)="popup_show = true"
+        class="cursor-pointer"
         width="409"
         height="130"
         viewBox="0 0 409 130"
@@ -23,9 +25,7 @@
         <li class="mt-5 custom-card">
           <app-chat-card>Juan Antonio</app-chat-card>
         </li>
-        <li class="mt-5 custom-card">
-          <app-chat-card>Juan Antonio</app-chat-card>
-        </li>
+        <li><app-chat-card>Agregar usuario</app-chat-card></li>
       </ul>
     </div>
   </div>
@@ -41,6 +41,29 @@
       <div class="w-full">
         <app-chat-input></app-chat-input>
       </div>
+    </div>
+  </div>
+</div>
+<div
+  *ngIf="popup_show"
+  class="absolute top-0 left-0 h-screen w-screen z-10 custom-blocker"
+>
+  <div
+    class="absolute top-0 left-0 h-screen w-screen z-20 flex justify-center items-center"
+  >
+    <div class="h-1/4 w-1/4 z-20 rounded-md custom-pop p-5 flex flex-col">
+      <button
+        (click)="logout()"
+        class="p-5 bg-red-700 rounded-lg w-full mt-4 text-white font-bold"
+      >
+        Cerrar sesion
+      </button>
+      <button
+        (click)="popup_show = false"
+        class="p-5 bg-blue-700 rounded-lg w-full mt-auto text-white"
+      >
+        Cerrar ventana
+      </button>
     </div>
   </div>
 </div>

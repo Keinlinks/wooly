@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./message-chat.component.css'],
 })
 export class MessageChatComponent {
-  isMe: boolean = false;
+  isMe: boolean = true;
 }

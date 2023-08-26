@@ -1,8 +1,9 @@
-export interface JwtResponseI {
+export interface Messagge {
   dataUser: {
     id: number;
     name: string;
     email: string;
-    accessToken: string;
   };
+  content: string;
+  timeStamp: string;
 }

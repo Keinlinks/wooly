@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent {
   registerForm!: FormGroup;
   buttonText = 'Registrarse';
+  disabledButton = false;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -18,8 +19,8 @@ export class RegisterComponent {
   ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      passwordConfirm: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      passwordConfirm: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
   registerSubmit() {
@@ -29,14 +30,17 @@ export class RegisterComponent {
         this.registerForm.value.passwordConfirm
       ) {
         this.buttonText = 'Enviando...';
+        this.disabledButton = true;
         this.authService.registerUser(this.registerForm.value).subscribe(
           (res) => {
-            alert('se registro correctamente');
+            alert('Se registro exitosamente!');
             this.buttonText = 'Registrarse';
+            this.disabledButton = false;
             this.router.navigateByUrl('/login');
           },
           (err) => {
             this.buttonText = 'Registrarse';
+            this.disabledButton = false;
             alert(`Error: ${err.message}`);
           }
         );

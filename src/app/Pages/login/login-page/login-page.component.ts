@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginPageComponent {
   loginForm!: FormGroup;
   buttonText = 'Iniciar sesión';
+  disabledButton: boolean = false;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -21,16 +22,20 @@ export class LoginPageComponent {
     });
   }
   loginSubmit() {
-    this.buttonText = 'Enviando...';
     if (this.loginForm.valid) {
+      this.buttonText = 'Enviando...';
+      this.disabledButton = true;
       this.authService.loginUser(this.loginForm.value).subscribe(
         (res) => {
+          this.disabledButton = false;
           this.buttonText = 'Iniciar sesión';
+
           this.router.navigate(['../../chat']);
         },
         (err) => {
+          this.disabledButton = false;
           this.buttonText = 'Iniciar sesión';
-          alert(`ERROR: ${err.message}`);
+          alert(`ERROR: Usuario o contraseña incorrecta`);
         }
       );
     }

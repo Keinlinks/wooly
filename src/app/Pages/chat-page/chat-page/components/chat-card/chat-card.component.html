@@ -1,6 +1,7 @@
 <div
   class="flex h-full w-full px-5 custom-background select-none"
   [ngClass]="{ noSelected: !selected }"
+  (click)="selected = !selected"
 >
   <div class="flex items-center">
     <div class="h-full w-full custom-profile-image"></div>
@@ -11,9 +12,9 @@
     </h2>
   </div>
   <div *ngIf="!selected" class="w-full flex flex-col h-full">
-    <h2 class="px-5 pt-2 font-bold">Juan Antonio</h2>
+    <h2 class="px-5 pt-1 font-bold">Jausda asda sd</h2>
     <p
-      class="ml-4 mt-2 text-gray-500 text-ellipsis w-full overflow-hidden custom-hover"
+      class="ml-4 mt-1 font-thin pb-2 text-gray-500 text-ellipsis w-full overflow-hidden custom-hover"
     >
       Hola como andas la la la la la la la la la la la la la la la al al al al
       al la la la lasdasd asdasd jdsfhjksdfjksdfhskdfhsdfkjsh sdjkfh sdjf hsd

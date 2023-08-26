@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authLoginGuard } from './Auth/auth-login.guard';
 import { ChatPageModule } from './Pages/chat-page/chat-page.module';
+import { redirectsGuard } from './guards/redirects.guard';
 
 const routes: Routes = [
   {
@@ -15,15 +16,18 @@ const routes: Routes = [
       import('./Pages/chat-page/chat-page.module').then(
         (m) => m.ChatPageModule
       ),
+    canActivate: [authLoginGuard],
   },
   {
     path: 'auth',
     loadChildren: () =>
       import('./Pages/login/login.module').then((m) => m.LoginModule),
+    canActivate: [redirectsGuard],
   },
+
   {
     path: '**',
-    redirectTo: 'auth/login',
+    redirectTo: '/chat',
   },
 ];
 
